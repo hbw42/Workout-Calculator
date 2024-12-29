@@ -6,11 +6,12 @@
     <title>Time Calculator</title>
     <style>
         body {
-            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 16px;
             background: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
+
         .container {
             max-width: 500px;
             margin: 0 auto;
@@ -19,75 +20,77 @@
             border-radius: 15px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+
         h1 {
             text-align: center;
-            color: #333;
             margin: 0 0 20px 0;
+            color: #333;
+            font-size: 24px;
+            font-weight: 600;
         }
+
         .split {
             display: flex;
             gap: 8px;
             margin-bottom: 12px;
         }
+
         input {
-            flex: 1;
-            padding: 12px;
-            font-size: 16px;
+            width: 100%;
+            padding: 14px;
             border: 1px solid #ddd;
-            border-radius: 8px;
-            width: 0;
-            -webkit-appearance: none;
+            border-radius: 10px;
+            font-size: 18px;
             text-align: center;
+            background: #fff;
+            -webkit-appearance: none;
         }
-        input::placeholder {
-            color: #999;
-            font-size: 14px;
-        }
+
         input::-webkit-inner-spin-button,
         input::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
+
         button {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
             background: #007AFF;
             color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 18px;
+            font-weight: 600;
             margin: 8px 0;
-            cursor: pointer;
             -webkit-tap-highlight-color: transparent;
         }
+
         button.delete {
-            width: auto;
-            padding: 8px;
+            width: 44px;
+            padding: 0;
             background: #ff3b30;
+            font-size: 24px;
+            line-height: 44px;
         }
+
         .total {
             margin-top: 24px;
             padding: 16px;
             background: #f8f8f8;
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: center;
         }
+
         .total-label {
             font-size: 14px;
             color: #666;
             margin-bottom: 8px;
         }
+
         .total-time {
             font-size: 32px;
-            font-weight: bold;
+            font-weight: 700;
             color: #333;
-        }
-        .input-label {
-            font-size: 12px;
-            color: #666;
-            text-align: center;
-            margin-bottom: 4px;
         }
     </style>
 </head>
@@ -140,35 +143,23 @@
             const container = document.getElementById('splits');
             container.innerHTML = splits.map((split, index) => `
                 <div class="split">
-                    <div style="flex: 1;">
-                        <div class="input-label">Hours</div>
-                        <input type="number" placeholder="HH" min="0" 
-                               value="${split.hours}"
-                               onchange="updateValue(${index}, 'hours', this.value)">
-                    </div>
-                    <div style="flex: 1;">
-                        <div class="input-label">Minutes</div>
-                        <input type="number" placeholder="MM" min="0" max="59"
-                               value="${split.minutes}"
-                               onchange="updateValue(${index}, 'minutes', this.value)">
-                    </div>
-                    <div style="flex: 1;">
-                        <div class="input-label">Seconds</div>
-                        <input type="number" placeholder="SS" min="0" max="59"
-                               value="${split.seconds}"
-                               onchange="updateValue(${index}, 'seconds', this.value)">
-                    </div>
+                    <input type="number" placeholder="HH" min="0" 
+                           value="${split.hours}"
+                           onchange="updateValue(${index}, 'hours', this.value)">
+                    <input type="number" placeholder="MM" min="0" max="59"
+                           value="${split.minutes}"
+                           onchange="updateValue(${index}, 'minutes', this.value)">
+                    <input type="number" placeholder="SS" min="0" max="59"
+                           value="${split.seconds}"
+                           onchange="updateValue(${index}, 'seconds', this.value)">
                     ${splits.length > 1 ? `
-                        <div style="display: flex; align-items: flex-end;">
-                            <button class="delete" onclick="removeSplit(${index})">×</button>
-                        </div>
+                        <button class="delete" onclick="removeSplit(${index})">×</button>
                     ` : ''}
                 </div>
             `).join('');
             calculateTotal();
         }
 
-        // Add initial split
         addSplit();
     </script>
 </body>
