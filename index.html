@@ -37,6 +37,11 @@
             border-radius: 8px;
             width: 0;
             -webkit-appearance: none;
+            text-align: center;
+        }
+        input::placeholder {
+            color: #999;
+            font-size: 14px;
         }
         input::-webkit-inner-spin-button,
         input::-webkit-outer-spin-button {
@@ -77,6 +82,12 @@
             font-size: 32px;
             font-weight: bold;
             color: #333;
+        }
+        .input-label {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 4px;
         }
     </style>
 </head>
@@ -129,17 +140,28 @@
             const container = document.getElementById('splits');
             container.innerHTML = splits.map((split, index) => `
                 <div class="split">
-                    <input type="number" placeholder="HH" min="0" 
-                           value="${split.hours}"
-                           onchange="updateValue(${index}, 'hours', this.value)">
-                    <input type="number" placeholder="MM" min="0" max="59"
-                           value="${split.minutes}"
-                           onchange="updateValue(${index}, 'minutes', this.value)">
-                    <input type="number" placeholder="SS" min="0" max="59"
-                           value="${split.seconds}"
-                           onchange="updateValue(${index}, 'seconds', this.value)">
+                    <div style="flex: 1;">
+                        <div class="input-label">Hours</div>
+                        <input type="number" placeholder="HH" min="0" 
+                               value="${split.hours}"
+                               onchange="updateValue(${index}, 'hours', this.value)">
+                    </div>
+                    <div style="flex: 1;">
+                        <div class="input-label">Minutes</div>
+                        <input type="number" placeholder="MM" min="0" max="59"
+                               value="${split.minutes}"
+                               onchange="updateValue(${index}, 'minutes', this.value)">
+                    </div>
+                    <div style="flex: 1;">
+                        <div class="input-label">Seconds</div>
+                        <input type="number" placeholder="SS" min="0" max="59"
+                               value="${split.seconds}"
+                               onchange="updateValue(${index}, 'seconds', this.value)">
+                    </div>
                     ${splits.length > 1 ? `
-                        <button class="delete" onclick="removeSplit(${index})">×</button>
+                        <div style="display: flex; align-items: flex-end;">
+                            <button class="delete" onclick="removeSplit(${index})">×</button>
+                        </div>
                     ` : ''}
                 </div>
             `).join('');
