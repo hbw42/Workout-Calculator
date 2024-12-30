@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Time Calculator</title>
     <style>
         body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 16px;
             background: #f0f0f0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-
         .container {
             max-width: 500px;
             margin: 0 auto;
@@ -20,76 +19,67 @@
             border-radius: 15px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
         h1 {
             text-align: center;
-            margin: 0 0 20px 0;
             color: #333;
-            font-size: 24px;
-            font-weight: 600;
+            margin: 0 0 20px 0;
         }
-
         .split {
             display: flex;
             gap: 8px;
             margin-bottom: 12px;
         }
-
         input {
-            width: 100%;
-            padding: 14px;
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
             border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 18px;
+            border-radius: 8px;
+            width: 0;
             text-align: center;
-            background: #fff;
             -webkit-appearance: none;
         }
-
+        input::placeholder {
+            color: #999;
+        }
         input::-webkit-inner-spin-button,
         input::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
-
         button {
             width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
+            padding: 12px;
             background: #007AFF;
             color: white;
-            font-size: 18px;
-            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
             margin: 8px 0;
+            cursor: pointer;
             -webkit-tap-highlight-color: transparent;
         }
-
         button.delete {
-            width: 44px;
-            padding: 0;
+            width: auto;
+            padding: 8px 12px;
             background: #ff3b30;
-            font-size: 24px;
-            line-height: 44px;
         }
-
         .total {
             margin-top: 24px;
             padding: 16px;
             background: #f8f8f8;
-            border-radius: 12px;
+            border-radius: 8px;
             text-align: center;
         }
-
         .total-label {
             font-size: 14px;
             color: #666;
             margin-bottom: 8px;
         }
-
         .total-time {
             font-size: 32px;
-            font-weight: 700;
+            font-weight: bold;
             color: #333;
         }
     </style>
@@ -109,7 +99,7 @@
         let splits = [];
 
         function addSplit() {
-            splits.push({ hours: 0, minutes: 0, seconds: 0 });
+            splits.push({ hours: '', minutes: '', seconds: '' });
             updateDisplay();
         }
 
@@ -119,15 +109,47 @@
         }
 
         function updateValue(index, type, value) {
-            value = parseInt(value) || 0;
+            value = value === '' ? '' : parseInt(value) || 0;
             if (type !== 'hours' && value > 59) value = 59;
             splits[index][type] = value;
             calculateTotal();
         }
 
+        function handleKeyPress(event, index, type, value) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission behavior
+                updateValue(index, type, value);
+                
+                // If we're in the seconds field
+                if (type === 'seconds') {
+                    // If this is the last row, add a new split
+                    if (index === splits.length - 1) {
+                        addSplit();
+                        // Focus the hours input of the new row after a short delay
+                        setTimeout(() => {
+                            const inputs = document.querySelectorAll('input[type="number"]');
+                            inputs[inputs.length - 3].focus(); // Focus hours of new row
+                        }, 0);
+                    } else {
+                        // If not the last row, focus the hours input of next row
+                        const inputs = document.querySelectorAll('input[type="number"]');
+                        inputs[(index + 1) * 3].focus(); // Focus hours of next row
+                    }
+                } else {
+                    // For hours and minutes, move to next input in the same row
+                    const inputs = document.querySelectorAll('input[type="number"]');
+                    const currentPosition = (index * 3) + (type === 'hours' ? 0 : 1);
+                    inputs[currentPosition + 1].focus();
+                }
+            }
+        }
+
         function calculateTotal() {
             let totalSeconds = splits.reduce((acc, split) => {
-                return acc + (split.hours * 3600) + (split.minutes * 60) + split.seconds;
+                const hours = parseInt(split.hours) || 0;
+                const minutes = parseInt(split.minutes) || 0;
+                const seconds = parseInt(split.seconds) || 0;
+                return acc + (hours * 3600) + (minutes * 60) + seconds;
             }, 0);
 
             const hours = Math.floor(totalSeconds / 3600);
@@ -145,12 +167,15 @@
                 <div class="split">
                     <input type="number" placeholder="HH" min="0" 
                            value="${split.hours}"
+                           onkeypress="handleKeyPress(event, ${index}, 'hours', this.value)"
                            onchange="updateValue(${index}, 'hours', this.value)">
                     <input type="number" placeholder="MM" min="0" max="59"
                            value="${split.minutes}"
+                           onkeypress="handleKeyPress(event, ${index}, 'minutes', this.value)"
                            onchange="updateValue(${index}, 'minutes', this.value)">
                     <input type="number" placeholder="SS" min="0" max="59"
                            value="${split.seconds}"
+                           onkeypress="handleKeyPress(event, ${index}, 'seconds', this.value)"
                            onchange="updateValue(${index}, 'seconds', this.value)">
                     ${splits.length > 1 ? `
                         <button class="delete" onclick="removeSplit(${index})">×</button>
@@ -160,6 +185,7 @@
             calculateTotal();
         }
 
+        // Add initial split
         addSplit();
     </script>
 </body>
