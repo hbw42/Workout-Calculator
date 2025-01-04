@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Time Calculator</title>
+    <title>Time & Weight Calculator</title>
     <style>
         body {
             font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -18,6 +18,7 @@
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
         h1 {
             text-align: center;
@@ -82,6 +83,16 @@
             font-weight: bold;
             color: #333;
         }
+        .weight-converter {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .weight-label {
+            font-size: 14px;
+            color: #666;
+            min-width: 40px;
+        }
     </style>
 </head>
 <body>
@@ -95,7 +106,22 @@
         </div>
     </div>
 
+    <div class="container">
+        <h1>Weight Converter</h1>
+        <div class="weight-converter">
+            <span class="weight-label">Kg</span>
+            <input type="number" id="kg" placeholder="Kilograms" step="0.01" min="0"
+                   onkeyup="convertWeight('kg')" onchange="convertWeight('kg')">
+        </div>
+        <div class="weight-converter" style="margin-top: 12px;">
+            <span class="weight-label">Lb</span>
+            <input type="number" id="lb" placeholder="Pounds" step="0.01" min="0"
+                   onkeyup="convertWeight('lb')" onchange="convertWeight('lb')">
+        </div>
+    </div>
+
     <script>
+        // Time Calculator Logic
         let splits = [];
 
         function addSplit() {
@@ -117,26 +143,21 @@
 
         function handleKeyPress(event, index, type, value) {
             if (event.key === 'Enter') {
-                event.preventDefault(); // Prevent form submission behavior
+                event.preventDefault();
                 updateValue(index, type, value);
                 
-                // If we're in the seconds field
                 if (type === 'seconds') {
-                    // If this is the last row, add a new split
                     if (index === splits.length - 1) {
                         addSplit();
-                        // Focus the hours input of the new row after a short delay
                         setTimeout(() => {
                             const inputs = document.querySelectorAll('input[type="number"]');
-                            inputs[inputs.length - 3].focus(); // Focus hours of new row
+                            inputs[inputs.length - 3].focus();
                         }, 0);
                     } else {
-                        // If not the last row, focus the hours input of next row
                         const inputs = document.querySelectorAll('input[type="number"]');
-                        inputs[(index + 1) * 3].focus(); // Focus hours of next row
+                        inputs[(index + 1) * 3].focus();
                     }
                 } else {
-                    // For hours and minutes, move to next input in the same row
                     const inputs = document.querySelectorAll('input[type="number"]');
                     const currentPosition = (index * 3) + (type === 'hours' ? 0 : 1);
                     inputs[currentPosition + 1].focus();
@@ -183,6 +204,20 @@
                 </div>
             `).join('');
             calculateTotal();
+        }
+
+        // Weight Converter Logic
+        function convertWeight(from) {
+            const kgInput = document.getElementById('kg');
+            const lbInput = document.getElementById('lb');
+            
+            if (from === 'kg') {
+                const kg = parseFloat(kgInput.value) || 0;
+                lbInput.value = (kg * 2.20462).toFixed(2);
+            } else {
+                const lb = parseFloat(lbInput.value) || 0;
+                kgInput.value = (lb / 2.20462).toFixed(2);
+            }
         }
 
         // Add initial split
