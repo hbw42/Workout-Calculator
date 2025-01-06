@@ -2,7 +2,7 @@
 
 A simple calculator for adding up time split durations for workouts. Created to use for my CrossFit workouts.
 
-Start adding your time splits >>> [Time Splits Calculator](https://hbw42.github.io/Time-calculator/)
+Click here to start adding your time splits >>> [Time Splits Calculator](https://hbw42.github.io/Time-calculator/)
 
 Also includes weight convertor.
 
