@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -181,6 +181,22 @@
         .modal-body li {
             margin-bottom: 8px;
         }
+        .footer {
+            font-size: 10px;
+            color: #666;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: #666;
+            text-decoration: underline;
+        }
+
+        .footer a:hover {
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -207,6 +223,10 @@
             <input type="number" id="lb" placeholder="Pounds" step="0.01" min="0"
                    onkeyup="convertWeight('lb')" onchange="convertWeight('lb')">
         </div>
+    </div>
+
+    <div class="footer">
+        made by <a href="https://hannahwiginton.com">Hannah</a>. See <a ref="https://github.com/hbw42/Time-calculator">repo</a>.
     </div>
 
     <!-- Modal -->
