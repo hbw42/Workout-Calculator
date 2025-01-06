@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Time & Weight Calculator</title>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJFX50Q1Z7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJFX50Q1Z7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-FJFX50Q1Z7');
-</script>
+        gtag('config', 'G-FJFX50Q1Z7');
+    </script>
     <!-- End Google Analytics -->
     <style>
         body {
@@ -34,6 +34,18 @@
             text-align: center;
             color: #333;
             margin: 0 0 20px 0;
+        }
+        .help-link {
+            font-size: 10px;
+            background: none;
+            color: #666;
+            padding: 0;
+            margin: -15px 0 20px 0;
+            width: auto;
+            font-weight: normal;
+            text-decoration: underline;
+            display: block;
+            text-align: center;
         }
         .split {
             display: flex;
@@ -102,7 +114,9 @@
             font-size: 14px;
             color: #666;
             min-width: 40px;
-            .modal {
+        }
+        /* Modal styles */
+        .modal {
             display: none;
             position: fixed;
             z-index: 1;
@@ -127,17 +141,23 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            text-align: center;
         }
-        .modal-header h2 {
-            margin: 0;
-            color: #333;
+       .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative; 
         }
-        .close {
+       .close {
             color: #aaa;
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
-        }
+            position: absolute;  
+            right: 0;           
+       }
         .close:hover {
             color: #666;
         }
@@ -161,7 +181,7 @@
 <body>
     <div class="container">
         <h1>Time Calculator</h1>
-        <button onclick="openInstructions()" style="margin-bottom: 10px;" class="instructions-button">How to Use This</button>
+        <button onclick="openInstructions()" class="help-link">how to use</button>
         <div id="splits"></div>
         <button onclick="addSplit()">Add Split</button>
         <div class="total">
@@ -181,6 +201,31 @@
             <span class="weight-label">Lb</span>
             <input type="number" id="lb" placeholder="Pounds" step="0.01" min="0"
                    onkeyup="convertWeight('lb')" onchange="convertWeight('lb')">
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>How to Use</h2>
+                <span class="close" onclick="closeInstructions()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>Time Calculator</h3>
+                <ol>
+                    <li>Type in hours (HH), minutes (MM), and seconds (SS)</li>
+                    <li>Click "Add Split" or press Enter to move to the next field</li>
+                    <li>Total time is calculated automatically (on last split, just click outside of box for total)</li>
+                    <li>Use the × button to remove unwanted rows</li>
+                </ol>
+                
+                <h3>Weight Converter</h3>
+                <ol>
+                    <li>Enter a number in either Kg or Lb</li>
+                    <li>See the conversion instantly</li>
+                </ol>
+            </div>
         </div>
     </div>
 
@@ -281,6 +326,23 @@
             } else {
                 const lb = parseFloat(lbInput.value) || 0;
                 kgInput.value = (lb / 2.20462).toFixed(2);
+            }
+        }
+
+        // Modal functions
+        function openInstructions() {
+            document.getElementById('instructionsModal').style.display = 'block';
+        }
+
+        function closeInstructions() {
+            document.getElementById('instructionsModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('instructionsModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
             }
         }
 
