@@ -6,7 +6,7 @@ Also includes weight convertor.
 
 Created by [Hannah Wiginton](https://hannahwiginton.com)
 
-![Time Splits Calculator Screenshot](assets/timesplitscalculator.png)
+![Time Splits Calculator Screenshot](<img src="assets/timesplitscalculator.png" width="400" height="498" alt="Time Splits Calculator Screenshot">)
 
 ## Time Split Features
 
