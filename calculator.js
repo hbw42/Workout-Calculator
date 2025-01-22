@@ -37,7 +37,7 @@ function calculateTotal() {
 
 function updateDisplay() {
     const container = document.getElementById('splits');
-    if (!container) return; // Early return if not on time calculator page
+    if (!container) return;
     
     container.innerHTML = splits.map((split, index) => `
         <div class="split">
@@ -58,7 +58,9 @@ function updateDisplay() {
     calculateTotal();
 }
 
-// Duration Calculator Logic
+// Duration Calculator Logic with localStorage
+let rounds = JSON.parse(localStorage.getItem('durationRounds') || '[]');
+
 function calculateDuration() {
     const startHours = parseInt(document.getElementById('startHours').value || 0);
     const startMinutes = parseInt(document.getElementById('startMinutes').value || 0);
@@ -87,16 +89,45 @@ function calculateDuration() {
     const formattedDuration = `${String(durationHours).padStart(2, '0')}:${String(durationMinutes).padStart(2, '0')}:${String(durationSeconds).padStart(2, '0')}`;
     const formattedNextStart = `${String(nextHours).padStart(2, '0')}:${String(nextMinutes).padStart(2, '0')}:${String(nextSeconds).padStart(2, '0')}`;
 
-    document.getElementById('durationResult').innerHTML = `
-        <div class="total">
-            <div class="total-label">Duration:</div>
-            <div class="total-time">${formattedDuration}</div>
+    // Save the new round
+    rounds.push({
+        duration: formattedDuration,
+        nextStart: formattedNextStart
+    });
+
+    // Save to localStorage
+    localStorage.setItem('durationRounds', JSON.stringify(rounds));
+
+    // Auto-fill start time with the next start time for convenience
+    document.getElementById('startHours').value = nextHours;
+    document.getElementById('startMinutes').value = nextMinutes;
+    document.getElementById('startSeconds').value = nextSeconds;
+    document.getElementById('endHours').value = '';
+    document.getElementById('endMinutes').value = '';
+    document.getElementById('endSeconds').value = '';
+
+    displayRounds();
+}
+
+function displayRounds() {
+    const resultDiv = document.getElementById('durationResult');
+    if (!resultDiv) return;
+    
+    resultDiv.innerHTML = rounds.map((round, index) => `
+        <div class="round-container">
+            <div class="round-label">Round ${index + 1}</div>
+            <div class="split">
+                <div class="total">
+                    <div class="total-label">Duration</div>
+                    <div class="total-time">${round.duration}</div>
+                </div>
+                <div class="total" style="background: #e8f5e9;">
+                    <div class="total-label">Next Start</div>
+                    <div class="total-time">${round.nextStart}</div>
+                </div>
+            </div>
         </div>
-        <div class="total" style="margin-top: 12px; background: #e8f5e9;">
-            <div class="total-label">Next Start Time:</div>
-            <div class="total-time">${formattedNextStart}</div>
-        </div>
-    `;
+    `).join('');
 }
 
 function resetDurationCalculator() {
@@ -104,6 +135,8 @@ function resetDurationCalculator() {
      'endHours', 'endMinutes', 'endSeconds'].forEach(id => {
         document.getElementById(id).value = '';
     });
+    rounds = [];
+    localStorage.removeItem('durationRounds');  // Clear from localStorage
     document.getElementById('durationResult').innerHTML = '';
 }
 
@@ -121,7 +154,44 @@ function convertWeight(from) {
     }
 }
 
+// Modal Functions
+function showInstructions() {
+    document.getElementById('instructionsModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeInstructions() {
+    document.getElementById('instructionsModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+function showInstallInstructions() {
+    document.getElementById('installModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeInstallInstructions() {
+    document.getElementById('installModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+// Close modals when clicking outside
+window.onclick = function(event) {
+    const instructionsModal = document.getElementById('instructionsModal');
+    const installModal = document.getElementById('installModal');
+    if (event.target === instructionsModal) {
+        closeInstructions();
+    } else if (event.target === installModal) {
+        closeInstallInstructions();
+    }
+}
+
 // Initialize time calculator if we're on that page
 if (document.getElementById('splits')) {
     addSplit();
+}
+
+// Initialize duration calculator if we're on that page
+if (document.getElementById('durationResult')) {
+    displayRounds(); // Display any saved rounds from localStorage
 }
