@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Duration Calculator</title>
+    <link rel="stylesheet" href="shared-styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Duration Calculator</h1>
+        
+        <div class="input-group">
+            <label>Start Time:</label>
+            <div class="split">
+                <input type="number" id="startHours" placeholder="HH" min="0" max="23">
+                <input type="number" id="startMinutes" placeholder="MM" min="0" max="59">
+                <input type="number" id="startSeconds" placeholder="SS" min="0" max="59">
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <label>End Time:</label>
+            <div class="split">
+                <input type="number" id="endHours" placeholder="HH" min="0" max="23">
+                <input type="number" id="endMinutes" placeholder="MM" min="0" max="59">
+                <input type="number" id="endSeconds" placeholder="SS" min="0" max="59">
+            </div>
+        </div>
+
+        <button onclick="calculateDuration()">Calculate Duration</button>
+        <button onclick="resetDurationCalculator()" class="delete">Reset</button>
+        
+        <div id="durationResult"></div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu">
+        <div class="menu-container">
+            <button onclick="window.location.href='index.html'" class="menu-button">
+                <i data-lucide="timer"></i>
+                <span class="menu-label">Splits</span>
+            </button>
+            <button class="menu-button active">
+                <i data-lucide="clock"></i>
+                <span class="menu-label">Duration</span>
+            </button>
+            <button onclick="window.location.href='weights.html'" class="menu-button">
+                <i data-lucide="scale"></i>
+                <span class="menu-label">Weight</span>
+            </button>
+        </div>
+    </nav>
+
+    <script src="calculator.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
