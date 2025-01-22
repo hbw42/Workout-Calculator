@@ -3,8 +3,8 @@ body {
     margin: 0;
     padding: 16px;
     background: #f0f0f0;
+    padding-bottom: 80px;
 }
-
 .container {
     max-width: 500px;
     margin: 0 auto;
@@ -14,13 +14,11 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-bottom: 20px;
 }
-
 h1 {
     text-align: center;
     color: #333;
     margin: 0 0 20px 0;
 }
-
 .help-link {
     font-size: 10px;
     background: none;
@@ -35,18 +33,15 @@ h1 {
     border: none;
     cursor: pointer;
 }
-
 .help-link:hover {
     color: #333;
 }
-
 .split {
     display: flex;
     gap: 8px;
     margin-bottom: 12px;
     justify-content: center;
 }
-
 input {
     flex: 1;
     padding: 12px;
@@ -57,17 +52,14 @@ input {
     text-align: center;
     -webkit-appearance: none;
 }
-
 input::placeholder {
     color: #999;
 }
-
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
 button {
     width: 100%;
     padding: 12px;
@@ -81,13 +73,11 @@ button {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 }
-
 button.delete {
     width: auto;
     padding: 8px 12px;
     background: #ff3b30;
 }
-
 .total {
     margin-top: 24px;
     padding: 16px;
@@ -95,19 +85,16 @@ button.delete {
     border-radius: 8px;
     text-align: center;
 }
-
 .total-label {
     font-size: 14px;
     color: #666;
     margin-bottom: 8px;
 }
-
 .total-time {
     font-size: 32px;
     font-weight: bold;
     color: #333;
 }
-
 .footer {
     font-size: 10px;
     color: #666;
@@ -115,12 +102,61 @@ button.delete {
     margin-top: -10px;
     margin-bottom: 20px;
 }
-
 .footer a {
     color: #666;
     text-decoration: underline;
 }
-
 .footer a:hover {
     color: #333;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    border-top: 1px solid #eee;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 64px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 64px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: #666;
+    transition: all 0.2s;
+}
+
+.menu-button.active {
+    color: #007AFF;
+    transform: scale(1.05);
+}
+
+.menu-button:hover {
+    background: none;
+    color: #333;
+}
+
+.menu-label {
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 4px;
 }
