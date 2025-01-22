@@ -1,4 +1,4 @@
-# Time Splits Calculator
+# Workout Calculators
 
 A simple calculator for adding up time split durations for workouts. Created to use for my CrossFit workouts.
 
