@@ -26,6 +26,15 @@
         </div>
     </div>
 
+    <div class="help-links">
+        <a class="help-link" onclick="showInstructions()">How to use this →</a>
+        <a class="help-link" onclick="showInstallInstructions()">Add to phone →</a>
+    </div>
+
+    <div class="footer">
+        made by <a href="https://hannahwiginton.com">Hannah</a>. See <a href="https://github.com/hbw42/Time-calculator">repo</a>.
+    </div>
+
     <!-- Mobile Menu -->
     <nav class="mobile-menu">
         <div class="menu-container">
@@ -44,9 +53,56 @@
         </div>
     </nav>
 
+    <!-- Usage Instructions Modal -->
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>How to Use</h2>
+                <span class="close" onclick="closeInstructions()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>Time Calculator</h3>
+                <ol>
+                    <li>Type in hours (HH), minutes (MM), and seconds (SS)</li>
+                    <li>Click "Add Split" to add another row</li>
+                    <li>Total time is calculated automatically</li>
+                    <li>Use the × button to remove unwanted rows</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Install Instructions Modal -->
+    <div id="installModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add to Your Phone</h2>
+                <span class="close" onclick="closeInstallInstructions()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>iPhone/iPad (Safari)</h3>
+                <ol>
+                    <li>Open the calculator in Safari</li>
+                    <li>Tap the Share button (square with arrow pointing up)</li>
+                    <li>Scroll down and tap "Add to Home Screen"</li>
+                    <li>Choose a name (or keep the default)</li>
+                    <li>Tap "Add"</li>
+                </ol>
+                    
+                <h3>Android (Chrome)</h3>
+                <ol>
+                    <li>Open the calculator in Chrome</li>
+                    <li>Tap the three dots menu (⋮)</li>
+                    <li>Tap "Add to Home screen"</li>
+                    <li>Choose a name (or keep the default)</li>
+                    <li>Tap "Add"</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
     <script src="calculator.js"></script>
     <script>
-        // Initialize Lucide icons
         lucide.createIcons();
     </script>
 </body>
