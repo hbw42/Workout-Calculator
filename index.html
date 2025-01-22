@@ -10,17 +10,12 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-FJFX50Q1Z7');
     </script>
-    <!-- End Google Analytics -->
     <link rel="stylesheet" href="shared-styles.css">
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <a href="weights.html" class="nav-link">Weight Converter →</a>
-
     <div class="container">
         <h1>Time Calculator</h1>
         <div id="splits"></div>
@@ -31,86 +26,28 @@
         </div>
     </div>
 
-    <div id="duration-calculator" class="container"></div>
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu">
+        <div class="menu-container">
+            <button class="menu-button active">
+                <i data-lucide="timer"></i>
+                <span class="menu-label">Splits</span>
+            </button>
+            <button onclick="window.location.href='duration.html'" class="menu-button">
+                <i data-lucide="clock"></i>
+                <span class="menu-label">Duration</span>
+            </button>
+            <button onclick="window.location.href='weights.html'" class="menu-button">
+                <i data-lucide="scale"></i>
+                <span class="menu-label">Weight</span>
+            </button>
+        </div>
+    </nav>
 
-    <div class="footer">
-        made by <a href="https://hannahwiginton.com">Hannah</a>
-    </div>
-
+    <script src="calculator.js"></script>
     <script>
-        // Time splits calculator logic
-        let splits = [];
-
-        function addSplit() {
-            splits.push({ hours: '', minutes: '', seconds: '' });
-            updateDisplay();
-        }
-
-        function removeSplit(index) {
-            splits.splice(index, 1);
-            updateDisplay();
-        }
-
-        function updateValue(index, type, value) {
-            value = value === '' ? '' : parseInt(value) || 0;
-            if (type !== 'hours' && value > 59) value = 59;
-            splits[index][type] = value;
-            calculateTotal();
-        }
-
-        function calculateTotal() {
-            let totalSeconds = splits.reduce((acc, split) => {
-                const hours = parseInt(split.hours) || 0;
-                const minutes = parseInt(split.minutes) || 0;
-                const seconds = parseInt(split.seconds) || 0;
-                return acc + (hours * 3600) + (minutes * 60) + seconds;
-            }, 0);
-
-            const hours = Math.floor(totalSeconds / 3600);
-            totalSeconds %= 3600;
-            const minutes = Math.floor(totalSeconds / 60);
-            const seconds = totalSeconds % 60;
-
-            document.getElementById('total').textContent = 
-                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        }
-
-        function updateDisplay() {
-            const container = document.getElementById('splits');
-            container.innerHTML = splits.map((split, index) => `
-                <div class="split">
-                    <input type="number" placeholder="HH" min="0" 
-                           value="${split.hours}"
-                           onchange="updateValue(${index}, 'hours', this.value)">
-                    <input type="number" placeholder="MM" min="0" max="59"
-                           value="${split.minutes}"
-                           onchange="updateValue(${index}, 'minutes', this.value)">
-                    <input type="number" placeholder="SS" min="0" max="59"
-                           value="${split.seconds}"
-                           onchange="updateValue(${index}, 'seconds', this.value)">
-                    ${splits.length > 1 ? `
-                        <button class="delete" onclick="removeSplit(${index})">×</button>
-                    ` : ''}
-                </div>
-            `).join('');
-            calculateTotal();
-        }
-
-        // Initialize
-        addSplit();
-    </script>
-
-    <!-- Duration Calculator Component -->
-    <script type="text/babel">
-        // Your React component code here
-        const TimeDurationCalculator = () => {
-            // ... (paste the entire React component here)
-        };
-
-        ReactDOM.render(
-            <TimeDurationCalculator />,
-            document.getElementById('duration-calculator')
-        );
+        // Initialize Lucide icons
+        lucide.createIcons();
     </script>
 </body>
 </html>
