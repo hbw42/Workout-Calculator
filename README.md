@@ -31,7 +31,7 @@ Created by [Hannah Wiginton](https://hannahwiginton.com)
 2. The other field will automatically update with the converted value
 3. Values are rounded to 2 decimal places for precision
 
-## Adding to Your Phone's Home Screen
+## 📱 Adding to Your Phone's Home Screen
 
 ### iPhone/iPad (Safari)
 1. Open the calculator in Safari
