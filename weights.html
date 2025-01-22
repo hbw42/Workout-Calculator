@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Weight Converter</title>
     <link rel="stylesheet" href="shared-styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <div class="container">
@@ -15,14 +16,27 @@
         </div>
     </div>
 
-    <div class="footer">
-        <a href="index.html" class="help-link">← Time Calculator</a>
-    </div>
-
-    <div class="footer">
-        made by <a href="https://hannahwiginton.com">Hannah</a>
-    </div>
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu">
+        <div class="menu-container">
+            <button onclick="window.location.href='index.html'" class="menu-button">
+                <i data-lucide="timer"></i>
+                <span class="menu-label">Splits</span>
+            </button>
+            <button onclick="window.location.href='duration.html'" class="menu-button">
+                <i data-lucide="clock"></i>
+                <span class="menu-label">Duration</span>
+            </button>
+            <button class="menu-button active">
+                <i data-lucide="scale"></i>
+                <span class="menu-label">Weight</span>
+            </button>
+        </div>
+    </nav>
 
     <script src="calculator.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
