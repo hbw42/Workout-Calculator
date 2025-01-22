@@ -1,0 +1,130 @@
+body {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 16px;
+    background: #f0f0f0;
+}
+
+.nav-link {
+    display: block;
+    text-align: center;
+    color: #007AFF;
+    text-decoration: none;
+    margin-bottom: 16px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.help-link {
+    font-size: 10px;
+    background: none;
+    color: #666;
+    padding: 0;
+    margin: -15px 0 20px 0;
+    width: auto;
+    font-weight: normal;
+    text-decoration: underline;
+    display: block;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.split {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 0;
+    text-align: center;
+    -webkit-appearance: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #007AFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+button.delete {
+    width: auto;
+    padding: 8px 12px;
+    background: #ff3b30;
+}
+
+.total {
+    margin-top: 24px;
+    padding: 16px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.total-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.total-time {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.weight-converter {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.weight-label {
+    font-size: 14px;
+    color: #666;
+    min-width: 40px;
+}
+
+.footer {
+    font-size: 10px;
+    color: #666;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    color: #666;
+    text-decoration: underline;
+}

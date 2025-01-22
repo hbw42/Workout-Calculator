@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Weight Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="index.html" class="nav-link">← Time Calculator</a>
+
+    <div class="container">
+        <h1>Weight Converter</h1>
+        <div class="weight-converter">
+            <span class="weight-label">Kg</span>
+            <input type="number" id="kg" placeholder="Kilograms" step="0.01" min="0"
+                   onkeyup="convertWeight('kg')" onchange="convertWeight('kg')">
+        </div>
+        <div class="weight-converter" style="margin-top: 12px;">
+            <span class="weight-label">Lb</span>
+            <input type="number" id="lb" placeholder="Pounds" step="0.01" min="0"
+                   onkeyup="convertWeight('lb')" onchange="convertWeight('lb')">
+        </div>
+    </div>
+
+    <div class="footer">
+        made by <a href="https://hannahwiginton.com">Hannah</a>
+    </div>
+
+    <script>
+        function convertWeight(from) {
+            const kgInput = document.getElementById('kg');
+            const lbInput = document.getElementById('lb');
+            
+            if (from === 'kg') {
+                const kg = parseFloat(kgInput.value) || 0;
+                lbInput.value = (kg * 2.20462).toFixed(2);
+            } else {
+                const lb = parseFloat(lbInput.value) || 0;
+                kgInput.value = (lb / 2.20462).toFixed(2);
+            }
+        }
+    </script>
+</body>
+</html>
