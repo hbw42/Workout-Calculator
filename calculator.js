@@ -235,11 +235,11 @@ function displayRounds() {
                 <div class="split">
                     <div class="total">
                         <div class="total-label">Round Time</div>
-                        <div class="total-time">${round.duration}</div>
+                        <div class="total-time">${formatTime(...round.duration.split(':').map(Number))}</div>
                     </div>
                     <div class="total" style="background: #e8f5e9;">
                         <div class="total-label">Start Next Round</div>
-                        <div class="total-time">${round.nextStart}</div>
+                        <div class="total-time">${formatTime(...round.nextStart.split(':').map(Number))}</div>
                     </div>
                 </div>
             </div>
@@ -248,9 +248,10 @@ function displayRounds() {
 }
 
 function formatTime(h, m, s) {
-    // Only show hours if they are greater than 0
-    const hoursStr = h > 0 ? `${h}:` : '';
-    return `${hoursStr}${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    if (h > 0) {
+        return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
 function resetDurationCalculator() {
