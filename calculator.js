@@ -130,6 +130,38 @@ function displayRounds() {
     `).join('');
 }
 
+// Delete a round
+function deleteRound(index) {
+    rounds.splice(index, 1);
+    localStorage.setItem('durationRounds', JSON.stringify(rounds));
+    displayRounds();
+}
+
+// Update the displayRounds function
+function displayRounds() {
+    const resultDiv = document.getElementById('durationResult');
+    if (!resultDiv) return;
+    
+    resultDiv.innerHTML = rounds.map((round, index) => `
+        <div class="round-container">
+            <div class="round-header">
+                <div class="round-label">Round ${index + 1}</div>
+                <button class="delete-round" onclick="deleteRound(${index})">×</button>
+            </div>
+            <div class="split">
+                <div class="total">
+                    <div class="total-label">Duration</div>
+                    <div class="total-time">${round.duration}</div>
+                </div>
+                <div class="total" style="background: #e8f5e9;">
+                    <div class="total-label">Next Start</div>
+                    <div class="total-time">${round.nextStart}</div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
 function resetDurationCalculator() {
     ['startHours', 'startMinutes', 'startSeconds', 
      'endHours', 'endMinutes', 'endSeconds'].forEach(id => {

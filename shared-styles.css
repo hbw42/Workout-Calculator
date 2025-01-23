@@ -269,3 +269,17 @@ button.delete {
     text-align: left;
     margin-bottom: 4px;
 }
+
+.round-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-round {
+    width: auto;
+    padding: 4px 8px;
+    background: #ff3b30;
+    font-size: 14px;
+    margin: 0;
+}
