@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Converters</title>
+    <title>Conversions</title>
     <link rel="stylesheet" href="shared-styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -14,27 +14,42 @@
 </head>
 <body>
     <div class="container converter-section">
-        <h1>Weight Converter (KG/LB)</h1>
+        <h1>KG/LB</h1>
         <div class="split">
-            <input type="number" id="kg" placeholder="KG" step="0.01" min="0" onkeyup="convertKgLb('kg')" onchange="convertKgLb('kg')">
-            <input type="number" id="lb" placeholder="LB" step="0.01" min="0" onkeyup="convertKgLb('lb')" onchange="convertKgLb('lb')">
+            <input type="number" id="kg" placeholder="KG" step="0.01" min="0" onkeyup="convertKgLb('kg')" onchange="convertKgLb('kg')"> 
+            <input type="number" id="lb" placeholder="LB" step="0.01" min="0" onkeyup="convertKgLb('lb')" onchange="convertKgLb('lb')">                     
         </div>
     </div>
 
     <div class="container converter-section">
-        <h1>Ounces/Grams Converter</h1>
+        <h1>Grams/Ounces</h1>
         <div class="split">
-            <input type="number" id="ounces" placeholder="Ounces" step="0.01" min="0" onkeyup="convertOzGrams('ounces')" onchange="convertOzGrams('ounces')">
             <input type="number" id="grams" placeholder="Grams" step="0.01" min="0" onkeyup="convertOzGrams('grams')" onchange="convertOzGrams('grams')">
+            <input type="number" id="ounces" placeholder="Ounces" step="0.01" min="0" onkeyup="convertOzGrams('ounces')" onchange="convertOzGrams('ounces')">           
         </div>
     </div>
 
     <div class="container converter-section">
-        <h1>Meters/Feet Converter</h1>
-        <div class="split">
-            <input type="number" id="meters" placeholder="Meters" step="0.01" min="0" onkeyup="convertMeters('meters')" onchange="convertMeters('meters')">
-            <input type="number" id="feet" placeholder="Feet" step="0.01" min="0" onkeyup="convertMeters('feet')" onchange="convertMeters('feet')">
+        <h1>Meters/Feet</h1>
+        <div class="split">  
+            <input type="number" id="meters" placeholder="Meters" step="0.01" min="0" onkeyup="convertMeters('meters')" onchange="convertMeters('meters')">          
+            <input type="number" id="feet" placeholder="Feet" step="0.01" min="0" onkeyup="convertMeters('feet')" onchange="convertMeters('feet')">            
         </div>
+    </div>
+
+    <div class="container converter-section">
+    <h1>Meters/Miles</h1>
+    <div class="split">
+        <input type="number" id="metersForMiles" placeholder="Meters" step="0.01" min="0" onkeyup="convertMetersToMiles('metersForMiles')" onchange="convertMetersToMiles('metersForMiles')">
+        <input type="number" id="milesForMeters" placeholder="Miles" step="0.01" min="0" onkeyup="convertMetersToMiles('milesForMeters')" onchange="convertMetersToMiles('milesForMeters')">
+    </div>
+</div>
+
+    <div class="container reset-container">
+        <button class="reset-button-conversions" onclick="resetAllConverters()">
+            <i data-lucide="rotate-ccw" width="10" height="10"></i>
+            Reset All
+        </button>
     </div>
 
     <div class="help-links">

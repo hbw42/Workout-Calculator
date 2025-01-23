@@ -348,6 +348,57 @@ function convertMeters(from) {
     }
 }
 
+// Meters to Miles
+
+function convertMetersToMiles(from) {
+    const metersForMilesInput = document.getElementById('metersForMiles');
+    const milesForMetersInput = document.getElementById('milesForMeters');
+    
+    if (from === 'metersForMiles') {
+        const meters = parseFloat(metersForMilesInput.value);
+        if (!isNaN(meters)) {
+            milesForMetersInput.value = (meters / 1609.34).toFixed(4);
+        } else {
+            milesForMetersInput.value = '';
+        }
+    } else if (from === 'milesForMeters') {
+        const miles = parseFloat(milesForMetersInput.value);
+        if (!isNaN(miles)) {
+            metersForMilesInput.value = (miles * 1609.34).toFixed(2);
+        } else {
+            metersForMilesInput.value = '';
+        }
+    }
+}
+
+// Reset converters
+
+function resetAllConverters() {
+    // Reset KG/LB Converter
+    document.getElementById('kg').value = '';
+    document.getElementById('lb').value = '';
+    
+    // Reset Ounces/Grams Converter
+    document.getElementById('ounces').value = '';
+    document.getElementById('grams').value = '';
+
+    // Reset Meters/Feet Converter
+    document.getElementById('meters').value = '';
+    document.getElementById('feet').value = '';
+
+    // Reset Meters/Miles Converter
+    document.getElementById('metersForMiles').value = '';
+    document.getElementById('milesForMeters').value = '';
+
+    // Trigger change events to reset calculations
+    ['kg', 'lb', 'ounces', 'grams', 'meters', 'feet','metersForMiles', 'milesForMeters'].forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.dispatchEvent(new Event('change'));
+        }
+    });
+}
+
 // Instruction modals
 
 
