@@ -31,9 +31,13 @@
         </div>
 
         <button onclick="calculateDuration()">Calculate Round</button>
-        <button onclick="resetDurationCalculator()" class="delete">Reset All</button>
-        
         <div id="durationResult"></div>
+        <div class="reset-container">
+            <button onclick="resetDurationCalculator()" class="reset-button">
+                <i data-lucide="rotate-ccw" width="10" height="10"></i>
+                Reset
+            </button>
+        </div>
     </div>
 
     <div class="help-links">
@@ -42,7 +46,7 @@
     </div>
 
     <div class="footer">
-        made by <a href="https://hannahwiginton.com">Hannah</a>. See <a href="https://github.com/hbw42/Time-calculator">repo</a>.
+        made by <a href="https://hannahwiginton.com">Hannah</a>. See <a href="https://github.com/hbw42/workout-calculator">repo</a>.
     </div>
 
     <!-- Mobile Menu -->
@@ -72,11 +76,10 @@
             </div>
             <div class="modal-body">
                 <h3>Round Duration Calculator</h3>
-                <h3>Gives your your Total Round Time and tells you when to start your next Round based on 1:1 Rest Time</h3>
-                <h4>🟢 Based on 1:1 Rest Time - Rest for as long as it took you to complete the round</h4>
+                <h3>🟢 Calculates your Total Round Time and tells you when to start your next Round based on 1:1 Rest Time - Rest for as long as it took you to complete the round</h3>
                 <ol>
                
-                    <li>For your 1st round, leave Start Time empty and enter your 1st round End Time</li>
+                    <li>After your 1st round, enter your 1st round End Time (leave Start Time empty)</li>
                     <li>Click "Calculate Round" to see your Round time and when to start your next Round</li>
                     <li>Each Round is saved when you click Calculate Round</li>
                     <li>Your next Start Time will automatically fill in as your new Start Time</li>
