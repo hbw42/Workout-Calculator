@@ -153,6 +153,8 @@ button.delete {
     height: 64px;
     max-width: 500px;
     margin: 0 auto;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 .menu-button {
     display: flex;
