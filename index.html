@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Time Splits Calculator</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJFX50Q1Z7"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-FJFX50Q1Z7');
-    </script>
-    <link rel="stylesheet" href="shared-styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+         
+        <!-- Favicons -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        
+        <!-- Open Graph -->
+        <meta property="og:title" content="Page Title">
+        <meta property="og:description" content="Page description">
+        <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+        <meta property="og:url" content="https://yourdomain.com/current-page">
+        <meta property="og:type" content="website">
+        
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+      </head>
+
+
+
 </head>
 <body>
     <div class="container">
@@ -32,27 +42,10 @@
     </div>
 
     <div class="footer">
-        made by <a href="https://hannahwiginton.com">Hannah</a>. See <a href="https://github.com/hbw42/Time-calculator">repo</a>.
+        made by <a href="https://hannahwiginton.com">Hannah</a>. See <a href="https://github.com/hbw42/workout-calculator">repo</a>.
     </div>
 
-    <!-- Mobile Menu -->
-    <nav class="mobile-menu">
-        <div class="menu-container">
-            <button class="menu-button active">
-                <i data-lucide="timer"></i>
-                <span class="menu-label">Splits</span>
-            </button>
-            <button onclick="window.location.href='duration'" class="menu-button">
-                <i data-lucide="clock"></i>
-                <span class="menu-label">Duration</span>
-            </button>
-            <button onclick="window.location.href='conversions'" class="menu-button">
-                <i data-lucide="scale"></i>
-                <span class="menu-label">Conversions</span>
-            </button>
-        </div>
-    </nav>
-
+ 
     <!-- Usage Instructions Modal -->
     <div id="instructionsModal" class="modal">
         <div class="modal-content">
@@ -101,7 +94,10 @@
         </div>
     </div>
 
-    <script src="calculator.js"></script>
+
+    <script src="js/calculator.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/menu.js"></script>
     <script>
         lucide.createIcons();
     </script>

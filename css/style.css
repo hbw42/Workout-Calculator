@@ -20,13 +20,30 @@ h1 {
     margin: 0 0 20px 0;
 }
 
+.subheading {
+    font-size: 14px;
+    background: none;
+    color: #666;
+    padding: 0 0 12px 0px;
+    margin: 0;
+    width: auto;
+    font-weight: normal;
+    display: block;
+    text-align: center;
+    border: none;
+}
+
+
+
 /* Help Links */
+
 .help-links {
     display: flex;
     gap: 20px;
     justify-content: center;
     margin: -15px 0 20px 0;
 }
+
 .help-link {
     font-size: 14px;
     background: none;
@@ -41,6 +58,7 @@ h1 {
     border: none;
     cursor: pointer;
 }
+
 .help-link:hover {
     color: #333;
 }

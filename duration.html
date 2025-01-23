@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Round Duration Times</title>
-    <link rel="stylesheet" href="shared-styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <div class="container">
         <h1>Round Duration Calculator</h1>
-        <div class="help-link">1:1 Rest Time</div>
+        <div class="subheading">1:1 Rest Time</div>
         
         <div class="input-group">
             <label class="round-label">Start Time:</label>
@@ -49,24 +49,7 @@
         made by <a href="https://hannahwiginton.com">Hannah</a>. See <a href="https://github.com/hbw42/workout-calculator">repo</a>.
     </div>
 
-    <!-- Mobile Menu -->
-    <nav class="mobile-menu">
-        <div class="menu-container">
-            <button onclick="window.location.href='index'" class="menu-button">
-                <i data-lucide="timer"></i>
-                <span class="menu-label">Splits</span>
-            </button>
-            <button class="menu-button active">
-                <i data-lucide="clock"></i>
-                <span class="menu-label">Round Duration</span>
-            </button>
-            <button onclick="window.location.href='conversions'" class="menu-button">
-                <i data-lucide="scale"></i>
-                <span class="menu-label">Conversions</span>
-            </button>
-        </div>
-    </nav>
-
+    
     <!-- Usage Instructions Modal -->
     <div id="instructionsModal" class="modal">
         <div class="modal-content">
@@ -76,7 +59,7 @@
             </div>
             <div class="modal-body">
                 <h3>Round Duration Calculator</h3>
-                <h3>🟢 Calculates your Total Round Time and tells you when to start your next Round based on 1:1 Rest Time - Rest for as long as it took you to complete the round</h3>
+                <h3>🟢 Calculates your Total Round Time and tells you when to start your next Round based on 1:1 Rest Time</h3>
                 <ol>
                
                     <li>After your 1st round, enter your 1st round End Time (leave Start Time empty)</li>
@@ -118,8 +101,10 @@
             </div>
         </div>
     </div>
+    <script src="js/calculator.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/menu.js"></script>
 
-    <script src="calculator.js"></script>
     <script>
         lucide.createIcons();
     </script>
