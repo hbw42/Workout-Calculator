@@ -3,16 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Weight Converter</title>
+    <title>Converters</title>
     <link rel="stylesheet" href="shared-styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .converter-section {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Weight Converter</h1>
+    <div class="container converter-section">
+        <h1>Weight Converter (KG/LB)</h1>
         <div class="split">
-            <input type="number" id="kg" placeholder="KG" step="0.01" min="0" onkeyup="convertWeight('kg')" onchange="convertWeight('kg')">
-            <input type="number" id="lb" placeholder="LB" step="0.01" min="0" onkeyup="convertWeight('lb')" onchange="convertWeight('lb')">
+            <input type="number" id="kg" placeholder="KG" step="0.01" min="0" onkeyup="convertKgLb('kg')" onchange="convertKgLb('kg')">
+            <input type="number" id="lb" placeholder="LB" step="0.01" min="0" onkeyup="convertKgLb('lb')" onchange="convertKgLb('lb')">
+        </div>
+    </div>
+
+    <div class="container converter-section">
+        <h1>Ounces/Grams Converter</h1>
+        <div class="split">
+            <input type="number" id="ounces" placeholder="Ounces" step="0.01" min="0" onkeyup="convertOzGrams('ounces')" onchange="convertOzGrams('ounces')">
+            <input type="number" id="grams" placeholder="Grams" step="0.01" min="0" onkeyup="convertOzGrams('grams')" onchange="convertOzGrams('grams')">
+        </div>
+    </div>
+
+    <div class="container converter-section">
+        <h1>Meters/Feet Converter</h1>
+        <div class="split">
+            <input type="number" id="meters" placeholder="Meters" step="0.01" min="0" onkeyup="convertMeters('meters')" onchange="convertMeters('meters')">
+            <input type="number" id="feet" placeholder="Feet" step="0.01" min="0" onkeyup="convertMeters('feet')" onchange="convertMeters('feet')">
         </div>
     </div>
 
@@ -51,10 +72,18 @@
                 <span class="close" onclick="closeInstructions()">&times;</span>
             </div>
             <div class="modal-body">
-                <h3>Weight Converter</h3>
+                <h3>KG/LB Converter</h3>
                 <ol>
                     <li>Enter a number in either KG or LB field</li>
                     <li>See the conversion instantly in the other field</li>
+                    <li>Conversion uses 1 kg = 2.20462 lb</li>
+                    <li>Numbers are rounded to 2 decimal places</li>
+                </ol>
+                <h3>Ounces/Grams Converter</h3>
+                <ol>
+                    <li>Enter a number in either Ounces or Grams field</li>
+                    <li>See the conversion instantly in the other field</li>
+                    <li>Conversion uses 1 ounce = 28.34952 grams</li>
                     <li>Numbers are rounded to 2 decimal places</li>
                 </ol>
             </div>

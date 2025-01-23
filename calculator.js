@@ -58,7 +58,15 @@ function updateDisplay() {
     calculateTotal();
 }
 
-// Duration Calculator Logic
+
+
+if (document.getElementById('splits')) {
+    addSplit();
+}
+
+
+// Round Duration Calculator Logic
+
 let rounds = JSON.parse(localStorage.getItem('durationRounds') || '[]');
 
 function calculateDuration() {
@@ -264,18 +272,84 @@ function resetDurationCalculator() {
     document.getElementById('durationResult').innerHTML = '';
 }
 
-function convertWeight(from) {
+
+if (document.getElementById('durationResult')) {
+    displayRounds();
+}
+
+
+// KG to LB conversion
+
+function convertKgLb(from) {
     const kgInput = document.getElementById('kg');
     const lbInput = document.getElementById('lb');
     
     if (from === 'kg') {
-        const kg = parseFloat(kgInput.value) || 0;
-        lbInput.value = (kg * 2.20462).toFixed(2);
+        const kg = parseFloat(kgInput.value);
+        if (!isNaN(kg)) {
+            lbInput.value = (kg * 2.20462).toFixed(2);
+        } else {
+            lbInput.value = '';
+        }
     } else {
-        const lb = parseFloat(lbInput.value) || 0;
-        kgInput.value = (lb / 2.20462).toFixed(2);
+        const lb = parseFloat(lbInput.value);
+        if (!isNaN(lb)) {
+            kgInput.value = (lb / 2.20462).toFixed(2);
+        } else {
+            kgInput.value = '';
+        }
     }
 }
+
+// Ounce to Grams conversion
+
+function convertOzGrams(from) {
+    const ouncesInput = document.getElementById('ounces');
+    const gramsInput = document.getElementById('grams');
+    
+    // Conversion rate: 1 ounce = 28.34952 grams
+    if (from === 'ounces') {
+        const ounces = parseFloat(ouncesInput.value);
+        if (!isNaN(ounces)) {
+            gramsInput.value = (ounces * 28.34952).toFixed(2);
+        } else {
+            gramsInput.value = '';
+        }
+    } else if (from === 'grams') {
+        const grams = parseFloat(gramsInput.value);
+        if (!isNaN(grams)) {
+            ouncesInput.value = (grams / 28.34952).toFixed(2);
+        } else {
+            ouncesInput.value = '';
+        }
+    }
+}
+
+// Meters to Feet conversion
+
+function convertMeters(from) {
+    const metersInput = document.getElementById('meters');
+    const feetInput = document.getElementById('feet');
+    
+    if (from === 'meters') {
+        const meters = parseFloat(metersInput.value);
+        if (!isNaN(meters)) {
+            feetInput.value = (meters * 3.28084).toFixed(2);
+        } else {
+            feetInput.value = '';
+        }
+    } else if (from === 'feet') {
+        const feet = parseFloat(feetInput.value);
+        if (!isNaN(feet)) {
+            metersInput.value = (feet / 3.28084).toFixed(2);
+        } else {
+            metersInput.value = '';
+        }
+    }
+}
+
+// Instruction modals
+
 
 function showInstructions() {
     document.getElementById('instructionsModal').style.display = 'block';
@@ -305,12 +379,4 @@ window.onclick = function(event) {
     } else if (event.target === installModal) {
         closeInstallInstructions();
     }
-}
-
-if (document.getElementById('splits')) {
-    addSplit();
-}
-
-if (document.getElementById('durationResult')) {
-    displayRounds();
 }
