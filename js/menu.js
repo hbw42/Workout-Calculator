@@ -8,7 +8,7 @@ function loadMobileMenu() {
                     <i data-lucide="timer"></i>
                     <span class="menu-label">Splits</span>
                 </button>
-                <button onclick="window.location.href='/duration'" class="menu-button ${window.location.pathname.includes('duration') ? 'active' : ''}">
+                <button onclick="window.location.href='https://hbw42.github.io/workout-calculator/duration'" class="menu-button ${window.location.pathname.includes('duration') ? 'active' : ''}">
                     <i data-lucide="clock"></i>
                     <span class="menu-label">Round Duration</span>
                 </button>
