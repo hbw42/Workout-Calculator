@@ -4,7 +4,7 @@ function loadMobileMenu() {
         const mobileMenuHTML = `
         <nav class="mobile-menu">
             <div class="menu-container">
-                <button class="menu-button ${window.location.pathname.includes('index') ? 'active' : ''}" onclick="window.location.href='/index'">
+                <button class="menu-button ${window.location.pathname.includes('index') ? 'active' : ''}" onclick="window.location.href='https://hbw42.github.io/workout-calculator/index'">
                     <i data-lucide="timer"></i>
                     <span class="menu-label">Splits</span>
                 </button>
@@ -12,7 +12,7 @@ function loadMobileMenu() {
                     <i data-lucide="clock"></i>
                     <span class="menu-label">Round Duration</span>
                 </button>
-                <button onclick="window.location.href='/conversions'" class="menu-button ${window.location.pathname.includes('conversions') ? 'active' : ''}">
+                <button onclick="window.location.href='https://hbw42.github.io/workout-calculator/conversions'" class="menu-button ${window.location.pathname.includes('conversions') ? 'active' : ''}">
                     <i data-lucide="scale"></i>
                     <span class="menu-label">Conversions</span>
                 </button>
