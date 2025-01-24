@@ -1,35 +1,14 @@
 # Workout Calculators
 
-A simple calculator for adding up time split durations for workouts. Created to use for my CrossFit workouts.
+Workout calculator for adding up time split durations, round durations and rest for workouts. 
+Created to use for my CrossFit workouts.
 
-Click here to start adding your time splits >>> [Time Splits Calculator](https://hbw42.github.io/Time-calculator/)
-
-Also includes weight convertor.
+Click here to start adding your time splits or 1:1 rest times >>> [Time Splits Calculator](https://hbw42.github.io/workout-calculator/)
 
 Created by [Hannah Wiginton](https://hannahwiginton.com)
 
 <img src="assets/timesplitscalculator.png" width="400" height="498" alt="Time Splits Calculator Screenshot">
 
-## Time Split Features
-
-- Add multiple time split durations (hours, minutes, seconds)
-- Automatically calculates total time
-
-## Weight Conversion features 
-- Convert between kilograms and pounds
-
-## How to Use
-
-### Time Calculator
-1. Enter hours, minutes, and seconds in the input fields
-2. Click "Add Split" or press Enter to move to the next field
-3. Total time is calculated automatically (on last split, just click outside of box for total)
-4. Use the × button to remove unwanted rows
-
-### Weight Converter
-1. Enter a value in either the Kg or Lb field
-2. The other field will automatically update with the converted value
-3. Values are rounded to 2 decimal places for precision
 
 ## 📱 Adding to Your Phone's Home Screen
 
