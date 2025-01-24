@@ -1,13 +1,21 @@
 # Workout Calculators
 
-Workout calculator for adding up time split durations, round durations and rest for workouts. 
+<img src="assets\workoutcalcmain.png" alt="workout calculator">
+
+Workout calculator for adding up time split durations, round durations and rest for workouts, plus common conversions. 
 Created to use for my CrossFit workouts.
 
 Click here to start adding your time splits or 1:1 rest times >>> [Time Splits Calculator](https://hbw42.github.io/workout-calculator/)
 
 Created by [Hannah Wiginton](https://hannahwiginton.com)
 
-<img src="assets/timesplitscalculator.png" width="400" height="498" alt="Time Splits Calculator Screenshot">
+TIME SPLITS CALCULATOR
+
+<img src="assets\time_splits_calc.png" width="550" height="498" alt="Time Splits Calculator Screenshot">
+
+ROUND DURATION AND 1:1 REST TIMES
+
+<img src="assets\round_duration.png" width="400" height="498" alt="Time Splits Calculator Screenshot">
 
 
 ## 📱 Adding to Your Phone's Home Screen
