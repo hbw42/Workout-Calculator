@@ -4,9 +4,12 @@
 
 Workout calculator for adding up time split durations, round durations and rest for workouts, plus common conversions. Created to use for CrossFit workouts.
 
-Start adding your time splits >>> [Time Splits Calculator](https://hbw42.github.io/workout-calculator/)
-Start counting your round durations and rest time >>> [Round Duration Calculator](https://hbw42.github.io/workout-calculator/duration.html)
-Convert Weight and Distance >>> [Conversions](https://hbw42.github.io/workout-calculator/rounds.html)
+⏱️ Start adding your time splits >>> [Time Splits Calculator](https://hbw42.github.io/workout-calculator/)
+
+🕑 Count your round durations and 1:1 rest time >>> [Round Duration Calculator](https://hbw42.github.io/workout-calculator/duration.html)
+
+⚖️ Convert Weight and Distance >>> [Conversions](https://hbw42.github.io/workout-calculator/rounds.html)
+
 
 Created by [Hannah Wiginton](https://hannahwiginton.com)
 
