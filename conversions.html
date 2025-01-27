@@ -73,27 +73,10 @@
     </div>
 
     <div class="footer">
-        made by <a href="https://hannahwiginton.com">Hannah</a>. See <a href="https://github.com/hbw42/Time-calculator">repo</a>.
+        made by <a href="https://hannahwiginton.com">Hannah</a>. See <a href="https://github.com/hbw42/workout-calculator">repo</a>.
     </div>
 
-    <!-- Mobile Menu -->
-    <nav class="mobile-menu">
-        <div class="menu-container">
-            <button onclick="window.location.href='index'" class="menu-button">
-                <i data-lucide="timer"></i>
-                <span class="menu-label">Splits</span>
-            </button>
-            <button onclick="window.location.href='duration'" class="menu-button">
-                <i data-lucide="clock"></i>
-                <span class="menu-label">Round Duration</span>
-            </button>
-            <button class="menu-button active">
-                <i data-lucide="scale"></i>
-                <span class="menu-label">Conversions</span>
-            </button>
-        </div>
-    </nav>
-
+   
     <!-- Usage Instructions Modal -->
     <div id="instructionsModal" class="modal">
         <div class="modal-content">
@@ -102,19 +85,25 @@
                 <span class="close" onclick="closeInstructions()">&times;</span>
             </div>
             <div class="modal-body">
-                <h3>KG/LB Converter</h3>
-                <ol>
-                    <li>Enter a number in either KG or LB field</li>
-                    <li>See the conversion instantly in the other field</li>
-                    <li>Conversion uses 1 kg = 2.20462 lb</li>
-                    <li>Numbers are rounded to 2 decimal places</li>
+                <h3>Weight Conversions</h3>
+                
+               Enter in the value you want to convert in any field and it will display the conversion on either side
                 </ol>
+                <h3>KG/LB Converter</h3>
+                <ol></ol>
+                    <li>Conversion uses 1 kg = 2.20462 lb</li>
+               
                 <h3>Ounces/Grams Converter</h3>
-                <ol>
-                    <li>Enter a number in either Ounces or Grams field</li>
-                    <li>See the conversion instantly in the other field</li>
+                <ol></ol>
                     <li>Conversion uses 1 ounce = 28.34952 grams</li>
-                    <li>Numbers are rounded to 2 decimal places</li>
+                
+                <h3>Meters/Feet Converter</h3>
+                <ol></ol>
+                    <li>Conversion uses 1 to 3.28084</li>
+                
+                <h3>Meters/Miles Converter</h3>
+                <ol></ol>
+                    <li>Conversion uses 1 to 1609.34</li>
                 </ol>
             </div>
         </div>
