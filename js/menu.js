@@ -30,6 +30,5 @@ function loadMobileMenu() {
     });
 }
 
-// Call the function to load mobile menu
 
 loadMobileMenu();
