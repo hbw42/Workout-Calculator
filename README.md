@@ -11,7 +11,7 @@ Workout calculator for adding up time split durations, round durations and rest 
 ⚖️ Convert Weight and Distance >>> [Conversions](https://hbw42.github.io/workout-calculator/rounds.html)
 
 
-Created by [Hannah Wiginton](https://hannahwiginton.com)
+
 
 - [TIME SPLITS CALCULATOR](#time-splits-calculator)
 - [ROUND DURATION AND 1:1 REST TIMES](#round-duration-and-11-rest-times)
@@ -84,3 +84,7 @@ Created by [Hannah Wiginton](https://hannahwiginton.com)
 3. Tap "Add to Home screen"
 4. Choose a name (or keep the default)
 5. Tap "Add"
+
+========
+
+// Maintained by [Hannah Wiginton](https://hannahwiginton.com)

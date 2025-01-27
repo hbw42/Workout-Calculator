@@ -19,17 +19,16 @@ function loadMobileMenu() {
             </div>
         </nav>`;
         
-        // Add mobile menu before the last script tag
+    
         const scripts = document.getElementsByTagName('script');
         scripts[scripts.length - 1].insertAdjacentHTML('beforebegin', mobileMenuHTML);
         
-        // Initialize Lucide icons
+        
         if (window.lucide) {
             lucide.createIcons();
         }
     });
 }
 
-// Call the function to load mobile menu
 
 loadMobileMenu();
