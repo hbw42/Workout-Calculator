@@ -10,8 +10,9 @@ Workout calculator for adding up time split durations, round durations and rest 
 
 ⚖️ Convert Weight and Distance >>> [Conversions](https://hbw42.github.io/workout-calculator/rounds.html)
 
+___________________
 
-
+**TABLE OF CONTENTS**
 
 - [TIME SPLITS CALCULATOR](#time-splits-calculator)
 - [ROUND DURATION AND 1:1 REST TIMES](#round-duration-and-11-rest-times)
@@ -27,15 +28,15 @@ Workout calculator for adding up time split durations, round durations and rest 
 
 <img src="assets\time_splits_calc.png" width="550" height="498" alt="Time Splits Calculator Screenshot">
 
-<h3>Time Splits Calculator</h3>
+<h3>How to use the Time Splits Calculator</h3>
 
-<ol>
-                <ol>
-                    <li>Type in hours (HH), minutes (MM), and seconds (SS)</li>
-                    <li>Click "Add Split" to add another row</li>
-                    <li>Total time is calculated automatically</li>
-                    <li>Use the × button to remove unwanted rows</li>
-                </ol>
+<ol start="1">
+
+<li>Type in hours (HH), minutes (MM), and seconds (SS)</li>
+<li>Click "Add Split" to add another row</li>
+<li>Total time is calculated automatically</li>
+<li>Use the × button to remove unwanted rows</li>
+</ol>
 
 ## ROUND DURATION AND 1:1 REST TIMES
 
@@ -44,9 +45,10 @@ Workout calculator for adding up time split durations, round durations and rest 
 
 <img src="assets\round_duration_calc_header.jpg" width="400" height="798" alt="Round Duration Screenshot">
 
-  <h3>Round Duration Calculator</h3>
-<ol>
-               
+  <h3>How to use the Round Duration Calculator</h3>
+
+<ol start="1">
+
 <li>After your 1st round, enter your 1st round End Time (leave Start Time empty)</li>
 <li>Click "Calculate Round" to see your Round time and when to start your next Round</li>
 <li>Each Round is saved when you click Calculate Round</li>
@@ -62,7 +64,7 @@ Workout calculator for adding up time split durations, round durations and rest 
 
 <img src="assets\weight_conversions_main.jpg" width="400" height="798" alt="Weight Conversions Screenshot">
 
-  <h3>Weight Conversions</h3>
+  <h3>How to use Weight Conversions</h3>
 <ol>
                
 <li>Enter in the value you want to convert in any field and it will display the conversion on either side</li>
@@ -72,19 +74,19 @@ Workout calculator for adding up time split durations, round durations and rest 
 ## 📱 Add as an App to Your Phone's Home Screen
 
 ### iPhone/iPad (Safari)
-1. Open the calculator in Safari
+1. Open the calculator in the Safari browser
 2. Tap the Share button (square with arrow pointing up)
 3. Scroll down and tap "Add to Home Screen"
 4. Choose a name (or keep the default)
 5. Tap "Add"
 
 ### Android (Chrome)
-1. Open the calculator in Chrome
+1. Open the calculator in the Chrome browser
 2. Tap the three dots menu (⋮)
 3. Tap "Add to Home screen"
 4. Choose a name (or keep the default)
 5. Tap "Add"
 
-========
+_________________________________
 
-// Maintained by [Hannah Wiginton](https://hannahwiginton.com)
+// Built and maintained by [Hannah Wiginton](https://hannahwiginton.com)
